@@ -1,0 +1,17 @@
+import speech_recognition as sr
+
+r = sr.Recognizer()
+with sr.Microphone() as source:
+    print("Speak Anything :")
+    audio = r.listen(source)
+    # try:
+    #     text = r.recognize_google(audio)
+    #     print("You said : {}".format(text))
+    #
+    #
+    # except:
+    #     print("Sorry could not recognize what you said")
+
+# write audio to a WAV file
+with open("microphone-results.wav", "wb") as f:
+    f.write(audio.get_wav_data())
